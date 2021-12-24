@@ -1,4 +1,4 @@
-module go-cli
+module gocli
 
 go 1.16
 

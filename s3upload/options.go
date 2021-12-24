@@ -2,7 +2,7 @@ package s3upload
 
 import (
 	"fmt"
-	"go-cli/tool"
+	"gocli/tool"
 	"reflect"
 
 	"github.com/caarlos0/env/v6"

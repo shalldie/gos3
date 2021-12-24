@@ -1,7 +1,7 @@
 package main
 
 import (
-	"go-cli/s3upload"
+	"gocli/s3upload"
 )
 
 func main() {
