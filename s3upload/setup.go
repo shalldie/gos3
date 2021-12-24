@@ -11,7 +11,7 @@ import (
 func Setup() {
 
 	pro := promptui.Select{
-		Label: "从 【自己输入】或者【环境变量】配置 ",
+		Label: "从 【自己输入】或者【环境变量】(需要 .env 文件)配置 ",
 		Items: []string{"自己输入", "环境变量"},
 	}
 	_, result, err := pro.Run()
@@ -23,7 +23,7 @@ func Setup() {
 	var options *UploadOptions
 
 	if result == "环境变量" {
-		options = ParseOptionsFromEnv()
+		options = ParseOptionsFromDotEnv(true)
 	} else {
 		options = ParseOptionsFromUI()
 	}
@@ -44,5 +44,4 @@ func Setup() {
 	}
 	fmt.Println("Upload Done")
 
-	println(options.AK, options.SK, options.PATH_STYLE)
 }

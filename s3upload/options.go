@@ -6,6 +6,7 @@ import (
 	"reflect"
 
 	"github.com/caarlos0/env/v6"
+	"github.com/joho/godotenv"
 	"github.com/manifoldco/promptui"
 )
 
@@ -20,9 +21,27 @@ type UploadOptions struct {
 	PATH_STYLE bool   `env:"PATH_STYLE" envDefault:"true"`
 }
 
-// ENDPOINT=dev-xieshuang.bcc-szth.baidu.com:8000
+func ParseOptionsFromDotEnv(withUI bool) *UploadOptions {
+	var fileName string = ".env"
+	var err error
 
-func ParseOptionsFromEnv() *UploadOptions {
+	if withUI {
+		pro := promptui.Prompt{
+			Label:   "配置环境变量的文件",
+			Default: ".env",
+		}
+
+		fileName, err = pro.Run()
+		if err != nil {
+			panic(err)
+		}
+	}
+
+	err = godotenv.Load(fileName)
+	if err != nil {
+		panic(err)
+	}
+
 	options := UploadOptions{}
 
 	if err := env.Parse(&options, env.Options{RequiredIfNoDef: true}); err != nil {
