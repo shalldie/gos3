@@ -1,4 +1,4 @@
-module github.com/shalldie/gocli
+module github.com/shalldie/gos3
 
 go 1.16
 
