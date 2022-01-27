@@ -1,4 +1,4 @@
-module gocli
+module github.com/shalldie/gocli
 
 go 1.16
 
