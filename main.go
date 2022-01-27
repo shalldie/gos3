@@ -1,8 +1,6 @@
 package main
 
-import (
-	"gocli/s3upload"
-)
+import "github.com/shalldie/gos3/s3upload"
 
 func main() {
 	s3upload.Setup()

@@ -2,8 +2,9 @@ package s3upload
 
 import (
 	"fmt"
-	"gocli/tool"
 	"reflect"
+
+	"github.com/shalldie/gos3/tool"
 
 	"github.com/caarlos0/env/v6"
 	"github.com/joho/godotenv"

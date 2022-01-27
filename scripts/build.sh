@@ -14,9 +14,9 @@ for os_name in ${TARGET_OS_NAMES[*]}; do
 
     GOOS=${tupleName[0]} \
         GOARCH=${tupleName[1]} \
-        go build -o gocli.${os_name}
+        go build -o gos3.${os_name}
 
     mkdir -p build
-    mv gocli.$os_name build/gocli.$os_name
+    mv gos3.$os_name build/gos3.$os_name
 
 done

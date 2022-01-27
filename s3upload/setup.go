@@ -2,9 +2,10 @@ package s3upload
 
 import (
 	"fmt"
-	"gocli/tool"
 	"os"
 	"strings"
+
+	"github.com/shalldie/gos3/tool"
 
 	"github.com/jedib0t/go-pretty/v6/table"
 	"github.com/manifoldco/promptui"
