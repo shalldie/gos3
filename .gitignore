@@ -18,3 +18,5 @@ gos3
 gos3.*
 .DS_Store
 build/*
+
+vendor

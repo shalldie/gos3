@@ -1,14 +1,13 @@
-package s3upload
+package upload
 
 import (
 	"fmt"
 	"reflect"
 
-	"github.com/shalldie/gos3/tool"
-
 	"github.com/caarlos0/env/v6"
 	"github.com/joho/godotenv"
 	"github.com/manifoldco/promptui"
+	"github.com/shalldie/gos3/internal/tool"
 )
 
 var OPT_KEYS = []string{"AK", "SK", "TOKEN", "BUCKET", "ENDPOINT", "PATH_STYLE"}
@@ -54,10 +53,10 @@ func ParseOptionsFromDotEnv(withUI bool) *UploadOptions {
 
 func ParseOptionsFromUI() *UploadOptions {
 	options := UploadOptions{}
-	typeTuples := tool.Struct2TypeTuple(options)
 
-	for _, tuple := range typeTuples {
-		fieldName, fieldType := tuple[0], tuple[1]
+	typeMap := tool.Struct2TypeTuples(options)
+
+	typeMap.ForEach(func(fieldName, fieldType string) {
 		field := reflect.ValueOf(&options).Elem().FieldByName(fieldName)
 		if fieldType == "string" {
 			pro := promptui.Prompt{
@@ -77,7 +76,7 @@ func ParseOptionsFromUI() *UploadOptions {
 			field.SetBool(result == "true")
 
 		}
-	}
+	})
 
 	return &options
 }

@@ -1,14 +1,13 @@
-package s3upload
+package upload
 
 import (
 	"fmt"
 	"os"
 	"strings"
 
-	"github.com/shalldie/gos3/tool"
-
 	"github.com/jedib0t/go-pretty/v6/table"
 	"github.com/manifoldco/promptui"
+	"github.com/shalldie/gos3/internal/tool"
 )
 
 func printOptionTable() {
@@ -17,12 +16,12 @@ func printOptionTable() {
 	t.SetOutputMirror(os.Stdout)
 	t.AppendHeader(table.Row{"字段名", "字段类型"})
 
-	options := &UploadOptions{}
-	fieldTuples := tool.Struct2TypeTuple(*options)
+	fieldMap := tool.Struct2TypeTuples(UploadOptions{})
 
-	for _, tuple := range fieldTuples {
-		t.AppendRow([]interface{}{tuple[0], tuple[1]})
-	}
+	fieldMap.ForEach(func(k, v string) {
+		t.AppendRow([]any{k, v})
+	})
+
 	// t.SetStyle(table.StyleColoredBright)
 	t.Render()
 
@@ -51,11 +50,12 @@ func Setup() {
 	}
 
 	pro2 := promptui.Prompt{
-		Label: "选择要上传的文件（逗号分隔）",
+		Label: "选择要上传的文件（空格分隔）",
 	}
 	content, _ := pro2.Run()
 
-	for _, filePath := range strings.Split(content, ",") {
+	for _, filePath := range strings.Split(content, " ") {
+		filePath = strings.Trim(filePath, " ")
 		file, err := os.Open(filePath)
 		if err != nil {
 			panic(err)
