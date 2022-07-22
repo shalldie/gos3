@@ -1,5 +1,7 @@
 # gos3
 
+[![Go Version](https://img.shields.io/github/go-mod/go-version/shalldie/gos3?label=go&logo=go&style=flat-square)](https://github.com/shalldie/gos3)
+[![Go Reference](https://pkg.go.dev/badge/github.com/shalldie/gos3.svg)](https://pkg.go.dev/github.com/shalldie/gos3)
 [![Build Status](https://img.shields.io/github/workflow/status/shalldie/gos3/ci?label=build&logo=github&style=flat-square)](https://github.com/shalldie/gos3/actions)
 [![License](https://img.shields.io/github/license/shalldie/gos3?logo=github&style=flat-square)](https://github.com/shalldie/gos3)
 
