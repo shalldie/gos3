@@ -15,6 +15,6 @@ require (
 	github.com/jmespath/go-jmespath v0.4.0 // indirect
 	github.com/mattn/go-runewidth v0.0.13 // indirect
 	github.com/rivo/uniseg v0.2.0 // indirect
-	github.com/shalldie/gog v0.0.0-20220207091529-09d8d846fbd5
+	github.com/shalldie/gog v1.0.0
 	golang.org/x/sys v0.0.0-20220704084225-05e143d24a9e // indirect
 )

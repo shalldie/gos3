@@ -32,8 +32,8 @@ github.com/pmezard/go-difflib v1.0.0 h1:4DBwDE0NGyQoBHbLQYPwSUPoCMWR5BEzIk/f1lZb
 github.com/pmezard/go-difflib v1.0.0/go.mod h1:iKH77koFhYxTK1pcRnkKkqfTogsbg7gZNVY4sRDYZ/4=
 github.com/rivo/uniseg v0.2.0 h1:S1pD9weZBuJdFmowNwbpi7BJ8TNftyUImj/0WQi72jY=
 github.com/rivo/uniseg v0.2.0/go.mod h1:J6wj4VEh+S6ZtnVlnTBMWIodfgj8LQOQFoIToxlJtxc=
-github.com/shalldie/gog v0.0.0-20220207091529-09d8d846fbd5 h1:dpNLk7LrAD3svFS5YqMBVPhm/pc/KT1EKWjCOI1lGQ0=
-github.com/shalldie/gog v0.0.0-20220207091529-09d8d846fbd5/go.mod h1:KKsQj76tFMRWPHhT4FLzrHpB0zT2soRgz2Oum0LeLRg=
+github.com/shalldie/gog v1.0.0 h1:bYe/Dh0dCblwaPKiEXIADNf++lD9XdOvGpvoGMZzj9s=
+github.com/shalldie/gog v1.0.0/go.mod h1:KKsQj76tFMRWPHhT4FLzrHpB0zT2soRgz2Oum0LeLRg=
 github.com/stretchr/objx v0.1.0/go.mod h1:HFkY916IF+rwdDfMAkV7OtwuqBVzrE8GR6GFx+wExME=
 github.com/stretchr/objx v0.4.0/go.mod h1:YvHI0jy2hoMjB+UWwv71VJQ9isScKT/TqJzVSSt89Yw=
 github.com/stretchr/testify v1.7.1/go.mod h1:6Fq8oRcR53rry900zMqJjRRixrwX3KX962/h/Wwjteg=
