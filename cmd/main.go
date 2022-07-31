@@ -1,8 +1,6 @@
 package main
 
-import (
-	"github.com/shalldie/gos3/internal/upload"
-)
+import "github.com/shalldie/gos3/upload"
 
 func main() {
 	upload.Setup()
