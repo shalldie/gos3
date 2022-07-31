@@ -19,3 +19,11 @@
 ## 使用
 
 下载后直接执行即可，加入 `PATH` 更佳。
+
+example:
+
+```bash
+wget -O gos3 [url]
+sudo mv gos3 /usr/local/bin/
+sudo chmod a+x gos3
+```
