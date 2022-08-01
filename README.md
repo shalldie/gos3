@@ -24,6 +24,6 @@ example:
 
 ```bash
 wget -O gos3 [url]
-sudo mv gos3 /usr/local/bin/
 sudo chmod a+x gos3
+sudo mv gos3 /usr/local/bin/gos3
 ```
