@@ -4,38 +4,36 @@ import (
 	"reflect"
 
 	"github.com/rivo/tview"
+	"github.com/shalldie/gog/sortedmap"
 )
 
-func struct2TupleList(sender any) [][]string {
-	tuples := [][]string{}
+func struct2SM(sender any) *sortedmap.SortedMap[string, string] {
+	sm := sortedmap.New[string, string]()
 
 	typeOpt := reflect.TypeOf(sender)
 
 	for i := 0; i < typeOpt.NumField(); i++ {
 		field := typeOpt.Field(i)
-		tuples = append(tuples, []string{
-			field.Name,
-			field.Type.Name(),
-		})
+		sm.Set(field.Name, field.Type.Name())
 	}
 
-	return tuples
+	return sm
 }
 
 func Setup() {
 	var filePath string
-	options := UploadOptions{
+	options := &UploadOptions{
 		PATH_STYLE: true,
 	}
 
-	tupleList := struct2TupleList(options)
+	sm := struct2SM(*options)
 
 	app := tview.NewApplication()
 	form := tview.NewForm()
 
-	for _, tuple := range tupleList {
-		fieldName, fieldType := tuple[0], tuple[1]
-		field := reflect.ValueOf(&options).Elem().FieldByName(fieldName)
+	sm.ForEach(func(fieldName, fieldType string) {
+		field := reflect.ValueOf(options).Elem().FieldByName(fieldName)
+
 		if fieldType == "string" {
 			form.AddInputField(fieldName, "", 40, nil, func(text string) {
 				field.SetString(text)
@@ -48,13 +46,14 @@ func Setup() {
 				field.SetBool(boolValueList[optionIndex])
 			})
 		}
-	}
+
+	})
 
 	form.AddInputField("要上传的文件（逗号分隔）", "", 50, nil, func(text string) {
 		filePath = text
 	}).AddButton("开始上传", func() {
 		app.Stop()
-		uploadFilesByFilePath(filePath, &options)
+		uploadFilesByFilePath(filePath, options)
 	}).
 		AddButton("退出", func() {
 			app.Stop()

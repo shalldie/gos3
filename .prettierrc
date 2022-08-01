@@ -8,7 +8,7 @@
     "arrowParens": "avoid",
     "overrides": [
         {
-            "files": ["*.yaml", "*.yml", "package.json"],
+            "files": ["*.yaml", "*.yml"],
             "options": {
                 "singleQuote": false,
                 "tabWidth": 2
