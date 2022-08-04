@@ -3,6 +3,7 @@ name: ci
 on:
   push:
   pull_request:
+  workflow_dispatch:
 
 jobs:
   build:
@@ -23,3 +24,11 @@ jobs:
         with:
           name: build-artifact
           path: build/gos3.*
+
+      - name: Release
+        uses: softprops/action-gh-release@v1
+        with:
+          name: lastest
+          tag_name: latest
+          files: |
+            build/gos3.*

@@ -28,7 +28,7 @@ func Setup() {
 
 	sm := struct2SM(*options)
 
-	app := tview.NewApplication()
+	app := tview.NewApplication().EnableMouse(true)
 	form := tview.NewForm()
 
 	sm.ForEach(func(fieldName, fieldType string) {
