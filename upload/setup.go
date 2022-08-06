@@ -59,10 +59,23 @@ func Setup() {
 			app.Stop()
 		})
 
-	form.SetBorder(true).SetTitle(" S3 upload ").SetTitleAlign(tview.AlignLeft)
+	form.SetBorder(true).SetTitle(" S3 Upload ").SetTitleAlign(tview.AlignLeft)
 
-	if err := app.SetRoot(form, true).SetFocus(form).Run(); err != nil {
+	layout := tview.NewFlex().
+		AddItem(
+			tview.NewFlex().SetDirection(tview.FlexRow).
+				AddItem(
+					form,
+					19, 1, false,
+				).
+				AddItem(
+					tview.NewBox(), 0, 1, false,
+				),
+			80, 1, false,
+		).
+		AddItem(tview.NewBox(), 0, 1, false)
+
+	if err := app.SetRoot(layout, true).SetFocus(form).Run(); err != nil {
 		panic(err)
 	}
-
 }

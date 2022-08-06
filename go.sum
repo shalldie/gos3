@@ -27,8 +27,8 @@ github.com/rivo/tview v0.0.0-20220728094620-c6cff75ed57b/go.mod h1:/Ve2+D+tGMTMN
 github.com/rivo/uniseg v0.2.0/go.mod h1:J6wj4VEh+S6ZtnVlnTBMWIodfgj8LQOQFoIToxlJtxc=
 github.com/rivo/uniseg v0.3.1 h1:SDPP7SHNl1L7KrEFCSJslJ/DM9DT02Nq2C61XrfHMmk=
 github.com/rivo/uniseg v0.3.1/go.mod h1:FN3SvrM+Zdj16jyLfmOkMNblXMcoc8DfTHruCPUcx88=
-github.com/shalldie/gog v1.0.1 h1:rMssV523mkGuksrrqaqYfLkfZCEdEmIo/QsQJHv+2UU=
-github.com/shalldie/gog v1.0.1/go.mod h1:KKsQj76tFMRWPHhT4FLzrHpB0zT2soRgz2Oum0LeLRg=
+github.com/shalldie/gog v1.0.2 h1:5eXPxKF/8bXMkTaNKiinJzKkMs2oeeQ6DtbqLUZKuDk=
+github.com/shalldie/gog v1.0.2/go.mod h1:KKsQj76tFMRWPHhT4FLzrHpB0zT2soRgz2Oum0LeLRg=
 github.com/stretchr/objx v0.1.0/go.mod h1:HFkY916IF+rwdDfMAkV7OtwuqBVzrE8GR6GFx+wExME=
 github.com/stretchr/testify v1.7.0 h1:nwc3DEeHmmLAfoZucVR881uASk0Mfjw8xYJ99tb5CcY=
 github.com/vbauerster/mpb/v7 v7.4.2 h1:n917F4d8EWdUKc9c81wFkksyG6P6Mg7IETfKCE1Xqng=
