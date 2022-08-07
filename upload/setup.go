@@ -2,8 +2,10 @@ package upload
 
 import (
 	"reflect"
+	"strconv"
 
 	"github.com/rivo/tview"
+	"github.com/shalldie/gog/gs"
 	"github.com/shalldie/gog/sortedmap"
 )
 
@@ -39,10 +41,13 @@ func Setup() {
 				field.SetString(text)
 			})
 		} else if fieldType == "bool" {
-			boolLabelList := []string{"true", "false"}
 			boolValueList := []bool{true, false}
 
-			form.AddDropDown(fieldName, boolLabelList, 0, func(option string, optionIndex int) {
+			boolLabelList := gs.Map(boolValueList, func(b bool, i int) string {
+				return strconv.FormatBool(b)
+			})
+
+			form.AddDropDown(fieldName, boolLabelList, gs.IndexOf(boolValueList, field.Bool()), func(option string, optionIndex int) {
 				field.SetBool(boolValueList[optionIndex])
 			})
 		}
@@ -59,23 +64,12 @@ func Setup() {
 			app.Stop()
 		})
 
-	form.SetBorder(true).SetTitle(" S3 Upload ").SetTitleAlign(tview.AlignLeft)
+	form.SetBorder(true).
+		SetTitle(" S3 Upload ").
+		SetTitleAlign(tview.AlignLeft).
+		SetRect(0, 0, 80, 19)
 
-	layout := tview.NewFlex().
-		AddItem(
-			tview.NewFlex().SetDirection(tview.FlexRow).
-				AddItem(
-					form,
-					19, 1, false,
-				).
-				AddItem(
-					tview.NewBox(), 0, 1, false,
-				),
-			80, 1, false,
-		).
-		AddItem(tview.NewBox(), 0, 1, false)
-
-	if err := app.SetRoot(layout, true).SetFocus(form).Run(); err != nil {
+	if err := app.SetRoot(form, false).SetFocus(form).Run(); err != nil {
 		panic(err)
 	}
 }
