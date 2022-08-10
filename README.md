@@ -18,7 +18,7 @@
 需要 `go@1.18+` 环境
 
 ```bash
-go install github.com/shalldie/gos3
+go install github.com/shalldie/gos3@latest
 ```
 
 ### 2. binary 方式
