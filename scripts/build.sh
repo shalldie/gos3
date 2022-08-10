@@ -24,9 +24,9 @@ for os_name in ${TARGET_OS_NAMES[*]}; do
 
     GOOS=${tupleName[0]} \
         GOARCH=${tupleName[1]} \
-        go build -gcflags "all=-trimpath=$BASE_PATH" -o gos3.${os_name} cmd/main.go
+        go build -gcflags "all=-trimpath=$BASE_PATH" -o gos3.${os_name} main.go
 
-    mkdir -p build
-    mv gos3.$os_name build/gos3.$os_name
+    mkdir -p output
+    mv gos3.$os_name output/gos3.$os_name
 
 done

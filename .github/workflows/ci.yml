@@ -23,7 +23,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: build-artifact
-          path: build/gos3.*
+          path: output/gos3.*
 
       - name: Release
         uses: softprops/action-gh-release@v1
@@ -31,4 +31,4 @@ jobs:
           name: lastest
           tag_name: latest
           files: |
-            build/gos3.*
+            output/gos3.*
